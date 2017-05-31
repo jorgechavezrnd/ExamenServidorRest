@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Edit your information</title>
+    <link href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <h2>Edit my information</h2>
+    <div>
+        <form class="form-horizontal" th:object="${user}" th:action="@{/user}" method="POST">
+            <input type="hidden" th:field="*{id}" />
+            <input type="hidden" th:field="*{active}" />
+            <input type="hidden" th:field="*{email}" />
+            <input type="hidden" th:field="*{password}" />
+            <input type="hidden" th:field="*{roles}" />
+            <label>Name:</label><br/>
+            <input type="text" th:field="*{name}" placeholder="Nombre" /><br/>
+            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" /><br/>
+
+            <label>Last Name:</label><br/>
+            <input type="text" th:field="*{lastName}" placeholder="Apellido"  /><br/>
+            <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" /><br/>
+
+
+            <p>Heigth: </p>
+            <input type="number"  th:field="*{heigth}"/>
+
+            <p>Weigth: </p>
+            <input type="number"  th:field="*{weigth}"/>
+
+            <p>Age: </p>
+            <input type="number"  th:field="*{age}"/>
+
+            <br/><label>Band model:</label><br/>
+            <select th:field="*{terminal}">
+                <option th:each="terminal : ${terminals}"
+                        th:value="${terminal.getId()}"
+                        th:text="${terminal.getTerminalName()}"></option>
+            </select>
+            <br/>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Done</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

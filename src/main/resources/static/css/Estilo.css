@@ -1,0 +1,104 @@
+.giganteLetra {
+    font-size: 1600%;
+    text-align: center;
+}
+
+.estiloTabla {
+    border: 4px solid black;
+    text-align: center;
+    font-size: 150%;
+    margin-left:auto;
+    margin-right:auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.estiloTr {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.textoMuestra {
+    text-align: center;
+    text-decoration: underline
+}
+
+table.especial th, td {
+    padding: 15px;
+}
+
+/* FORMATO PARA EL MENU */
+
+ul.bloque {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333333;
+}
+
+li.bloqueBoton a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+	float: left;
+}
+
+li.bloqueBoton a:hover {
+	background-color: #111111;
+}
+
+/* FORMATO PARA EL FORMULARIO */
+
+.centralizar {
+	text-align: center;
+}
+
+.legendStyle {
+	text-align: center;
+	font-weight: bold;
+	font-size: 150%;
+}
+
+.reducirFormulario {
+	margin-top:10px;
+	margin-right:auto;
+	margin-left:auto;
+	border:5px solid #4CAF50;
+	padding:9px 35px;
+	background:#c1c2c3;
+	width:400px;
+	border-radius:0px;
+}
+
+.estiloBoton {
+	border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	background-color: #333333;
+}
+
+.estiloLabel {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.estiloBoton:hover {
+	background-color: #111111;
+}
+
+.estiloMapa {
+    width: auto;
+    height: 400px;
+    background: black;
+}

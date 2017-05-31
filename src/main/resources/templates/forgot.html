@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>recover password</title>
+    <link href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<form th:action="@{/}" method="get">
+    <button type="Submit">Return To Login</button>
+</form>
+
+<h3 th:text="Email"></h3><br/>
+
+<form th:action="@{/send-mail}" method="get">
+    <input th:placeholder="Email" type="text" id="email" name="email" /> <br/>
+
+    <input type="submit" name="submit" value="Send Mail"/>
+</form>
+
+</body>
+</html>

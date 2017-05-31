@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<script th:inline="javascript">
+    var idValue = /*[[${id}]]*/;
+    function updateSteps(){
+        $.getJSON( "/getSteps/" + idValue, function( data ) {
+            $('#pasos').html(data.steps);
+            if(data.steps > 100){
+                $('#pasos').removeClass("label-warning")
+                $('#pasos').addClass("label-danger");
+            }else{
+                $('#pasos').removeClass("label-danger")
+                $('#pasos').addClass("label-warning");
+            }
+            //document.getElementById('pasos').innerHTML = data.steps;
+        });
+    }
+
+    function updateSleep_quality(){
+        $.getJSON( "/getSteps/" + idValue, function( data ) {
+            $('#sleep_quality').html(data.sleep_quality);
+            if(data.sleep_quality > 100){
+                $('#sleep_quality').removeClass("label-warning")
+                $('#sleep_quality').addClass("label-danger");
+            }else{
+                $('#sleep_quality').removeClass("label-danger")
+                $('#sleep_quality').addClass("label-warning");
+            }
+            //document.getElementById('sleep_quality').innerHTML = data.sleep_quality;
+        });
+    }
+
+    setInterval(function(){
+        updateSteps();
+        updateSleep_quality();
+        //location.reload();
+    }, 1000);
+</script>
+
+<p>Pasos</p>
+<span id="pasos" class="label" th:text="${countSteps}">countSteps</span> <br/><br/>
+<p>Calidad de sueño</p>
+<span id="sleep_quality" class="label" th:text="${countSleep_quality}">countSleep_quality</span> <br/><br/>
+<p>Fecha evento</p>
+<span id="fechaEvento" class="label" th:text="${fecha_evento}">fecha_evento</span>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>UserProfile</title>
+    <link href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<form th:action="@{/logout}" method="get">
+    <button name="registration" type="Submit">Logout</button>
+</form>
+<div class="container">
+    <div>
+        <p>Hola</p>
+        <a th:href="${'/user/profile/'}">Profile</a>
+    </div>
+    <div>
+        <p>ver</p>
+        <a th:href="${'/user/index'}">informacion</a>
+    </div>
+</div>
+</body>
+</html>

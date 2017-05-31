@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Registration Form</title>
+		<link href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+		<!--<link href="/style/bootstrap.css" th:href="@{/style/bootstrap.css}" rel="stylesheet" media="screen"/>-->
+	</head>
+	<body>
+		<form th:action="@{/}" method="get">
+			<button type="Submit">Regresar a Login</button>
+		</form>
+		<h2>Registrar usuario</h2>
+		<form autocomplete="off" th:action="@{/registration}" th:object="${user}" method="post">
+			<input type="hidden" th:field="*{id}" />
+			<input type="hidden" th:field="*{active}" />
+
+			<label>Nombre</label><br/>
+			<input type="text" th:field="*{name}" placeholder="Nombre" /><br/>
+			<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" /><br/>
+
+			<label>Apellido</label><br/>
+			<input type="text" th:field="*{lastName}" placeholder="Apellido" /><br/>
+			<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" /><br/>
+
+			<label>E-Mail</label><br/>
+			<input type="text" th:field="*{email}" placeholder="Email" /><br/>
+			<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" /><br/>
+
+			<label>Contraseña</label><br/>
+			<input type="password" th:field="*{password}" placeholder="Password" /><br/>
+			<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" /><br/>
+
+			<br/><label>Band model:</label><br/>
+			<select th:field="*{terminal}">
+				<option th:each="terminal : ${terminals}"
+						th:value="${terminal.getId()}"
+						th:text="${terminal.getTerminalName()}"></option>
+			</select>
+			<br/>
+
+			<input type="submit" name="submit" value="Register User"/>
+			<label th:text="${successMessage}"></label>
+
+
+
+
+
+
+		</form>
+	</body>
+</html>

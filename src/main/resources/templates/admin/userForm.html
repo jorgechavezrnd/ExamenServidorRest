@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>User</title>
+    <link href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <h2>Active user</h2>
+    <div>
+        <form class="form-horizontal" th:object="${user}" th:action="@{/admin/user}" method="POST">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{email}"/>
+            <input type="hidden" th:field="*{password}"/>
+            <input type="hidden" th:field="*{name}"/>
+            <input type="hidden" th:field="*{lastName}"/>
+            <input type="hidden" th:field="*{roles}"/>
+            <input type="hidden" th:field="*{weigth}"/>
+            <input type="hidden" th:field="*{heigth}"/>
+            <input type="hidden" th:field="*{age}"/>
+            <input type="hidden" th:field="*{terminal}"/>
+            <br class="form-group">
+            <div>
+                <label class="col-sm-2 control-label">Active:</label>
+                    <input type="checkbox" th:field="*{active}" th:value="*{active}" />
+             </div>
+            </br>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

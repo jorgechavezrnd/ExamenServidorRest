@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Limited Page</title>
+        <link href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+    </head>
+    <body>
+    <form th:action="@{/logout}" method="get">
+        <button name="registration" type="Submit">Logout</button>
+    </form>
+
+    <label th:text="${userName}"></label>
+    <p th:text="${userMessage}"></p>
+
+    </body>
+</html>

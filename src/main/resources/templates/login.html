@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Spring Security Tutorial</title>
+		<link href="/css/Estilo.css" th:href="@{/css/Estilo.css}" rel="stylesheet" media="screen"/>
+	</head>
+	<body>
+		<form th:action="@{/registration}" method="get">
+			<button type="Submit">Go To Registration Page</button>
+		</form>
+
+		<h3 class="centralizar" th:text="Welcome"></h3><br/>
+
+		<form class="centralizar" th:action="@{/login}" method="POST">
+			<fieldset class="reducirFormulario">
+				<input class="centralizar" th:placeholder="Email" type="text" id="email" name="email"  /> <br/>
+				<input class="centralizar" th:placeholder="Password" type="password" id="password" name="password" /> <br /><br/>
+				<div th:if="${param.error}">
+					<p>Email o Contraseña invalidos</p>
+				</div>
+				<input class="estiloBoton" type="submit" name="submit" value="Login"/>
+			</fieldset>
+		</form>
+		<br/>
+		<form class="centralizar" th:action="@{/forgot}" method="get">
+			<button class="centralizar" type="Submit">Forgot Your Password?</button>
+		</form>
+	</body>
+</html>
